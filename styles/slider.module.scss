@@ -1,0 +1,28 @@
+@import "./index";
+
+.swiperSlide {
+    cursor: pointer;
+    .sliderImgs {
+        width: 100vw;
+        height: 62.5vw;
+        object-fit: cover;
+    }
+}
+
+.swiperSlideMobile {
+    cursor: pointer;
+    .sliderImgs {
+        width: 100vw;
+        height: 233.3vw;
+        object-fit: cover;
+    }
+}
+// @media screen and (max-width: 768px) {
+//     .swiperSlide {
+//         .sliderImgs {
+//             width: 100vw;
+//             height: 233.3vw;
+//             object-fit: cover;
+//         }
+//     }
+// }

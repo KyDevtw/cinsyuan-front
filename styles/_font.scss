@@ -1,0 +1,9 @@
+// font
+@mixin font($size: 16px, $weight: 400, $color: map-get($common, 'text-primary')) {
+  font: {
+    family: 'Noto Sans TC', sans-serif;
+    size: $size;
+    weight: $weight;
+  }
+  color: $color;
+}

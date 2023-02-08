@@ -1,0 +1,205 @@
+@import "./index";
+
+@include themify($themes){
+  &.footer {
+    width: 100%;
+    padding: 20px 10px;
+    background-color: themed('active');
+    color: map-get($common, 'white');
+    display: flex;
+    flex-wrap: wrap;
+
+    .row {
+      width: 100%;
+      padding: 20px 0px;
+      border-bottom: 1px solid map-get($common, 'footer-line');
+
+      &:last-child {
+        border-bottom: 0px;
+      }
+    }
+
+    .name {
+      width: 100%;
+      margin-bottom: 10px;
+      text-align: center;
+      @include font(18px, 400, map-get($common, 'white'));
+    }
+
+    .pages {
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      @include font(14px, 400, map-get($common, 'white'));
+
+      a {
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        text-align: center;
+        border-right: 1px solid map-get($common, 'white');
+
+        &:first-child {
+          margin-left: auto;
+        }
+
+        &:last-child {
+          border-right: 0px;
+          margin-right: auto;
+        }
+      }
+    }
+
+    .address {
+      width: 100%;
+      margin-bottom: 5px;
+      text-align: center;
+      @include font(13px, 400, map-get($common, 'white'));
+    }
+
+    .numberMail {
+      width: 100%;
+      display: block;
+      text-align: center;
+
+      .tel, .fax, .mail {
+        margin-bottom: 5px;
+        @include font(13px, 400, map-get($common, 'white'));
+      }
+    }
+
+    .paymethod {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      .payItems {
+        width: 46px;
+        height: 46px;
+        padding-top: 10px;
+        margin: auto 8px;
+        background-color: map-get($common, 'white');
+        border-radius: 50%;
+        text-align: center;
+
+      }
+    }
+
+    .copyright {
+      @include font(13px, 400, map-get($common, 'white'));
+      text-align: center;
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px){
+
+  @include themify($themes) {
+    &.footer {
+      padding: 20px 0px;
+    
+      .row {
+        width: 80%;
+        max-width: 1200px;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        &:last-child{
+          padding-bottom: 0px;
+        }
+      }
+    
+      .name {
+        width: 30%;
+        margin-bottom: 7px;
+        text-align: left;
+        @include font(20px, 400, map-get($common, 'white'));
+        line-height: 29px;
+      }
+    
+      .pages {
+        width: 70%;
+        margin-bottom: 7px;
+        @include font(16px, 400, map-get($common, 'white'));
+        line-height: 29px;
+  
+        a {
+          margin-bottom: 5px;
+          padding: 0px 13px;
+          border-right: 1px solid map-get($common, 'white');
+  
+          &:last-child {
+            margin-right: 0px;
+            padding-right: 0px;
+          }
+        }
+      }
+    
+      .address {
+        width: 100%;
+        margin-bottom: 7px;
+        text-align: left;
+        @include font(16px, 400, map-get($common, 'white'));
+      }
+    
+      .numberMail {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+  
+        .tel, .fax, .mail {
+          margin-right: 20px;
+          margin-bottom: 7px;
+          @include font(16px, 400, map-get($common, 'white'));
+  
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+  
+      .paymethod {
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
+    
+      .copyright {
+        margin-left: auto;
+        @include font(16px, 400, map-get($common, 'footer-copyright'));
+        line-height: 46px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px){
+  @include themify($themes){
+    &.footer {
+
+      .row {
+        padding: 10px 0px;
+      }
+  
+      .address {
+        width: 30%;
+      }
+  
+      .numberMail {
+        width: 70%;
+        justify-content: flex-end;
+  
+        &.left {
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+}

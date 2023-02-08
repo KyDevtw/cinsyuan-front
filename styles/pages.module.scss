@@ -1,0 +1,65 @@
+@import "./index";
+
+@include themify($themes) {
+    &.main {
+        flex-direction: column;
+        justify-content: start;
+        background-color: themed('bgc');
+
+        .title {
+            width: 100%;
+            padding: 20px 0px;
+            position: relative;
+            // @include font(20px, 500, themed('text-active'));
+            @include font(20px, 500, themed('ckTitle'));
+            text-align: center;
+            letter-spacing: 8px;
+            line-height: 25px;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 3px;
+                width: 26px;
+                position: absolute;
+                left: calc(50% - 17px);
+                bottom: 5px;
+                // background-color: themed('text-active');
+                background-color: themed('ckTitle');
+            }
+        }
+    }
+}
+
+.content{
+    width: calc(100% - 50px);
+    padding: 0px 25px;
+    margin: 0px auto;
+    margin-top: 20px;
+    color: map-get($common, 'text-primary');
+    background-color: map-get($common, 'white');
+    
+}
+
+@media screen and (min-width: 768px) {
+    @include themify($themes){
+        &.main{
+        .title {
+                padding: 30px 0px;
+                margin-top: 0;
+                @include font(26px, 500, themed('ckTitle'));
+                letter-spacing: 12px;
+                line-height: 35px;
+            }
+        }
+    }
+    
+
+    .content {
+        width: 768px;
+        padding: 0px 15px;
+        margin: 20px auto;
+        margin-top: 20px;
+        color: map-get($common, 'text-primary');;
+    }
+}

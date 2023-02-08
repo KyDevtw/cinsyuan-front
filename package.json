@@ -1,0 +1,30 @@
+{
+  "name": "cinsyan",
+  "private": true,
+  "version": "0.1.0",
+  "description": "沁宣cinsyuan",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@uiball/loaders": "^1.2.6",
+    "axios": "^0.27.2",
+    "lodash": "^4.17.21",
+    "next": "^12.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-modal": "^3.14.4",
+    "react-phone-number-input": "^3.1.44",
+    "sass": "^1.45.1",
+    "sweetalert2": "^11.4.17",
+    "swiper": "^8.1.4"
+  },
+  "devDependencies": {
+    "eslint": "8.5.0",
+    "eslint-config-next": "12.0.7"
+  }
+}

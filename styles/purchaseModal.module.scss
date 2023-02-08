@@ -1,0 +1,584 @@
+@import "./index";
+
+@include themify($themes) {
+  &.modal_close {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    top: -17.5px;
+    right: 11px;
+    cursor: pointer;
+    background-color: map-get($common, 'white');
+    border: 3px solid themed('secondary');
+    &::after {
+      content: '✖︎';
+      display: block;
+      color: themed('secondary');
+      font-size: 25px;
+      text-align: center;
+    }
+  }
+}
+
+
+.main{
+  min-height: unset;
+  width: 290px;
+  background-color: map-get($common, 'white');
+}
+
+.error_text{
+  margin-left: 10px;
+  @include font(12px, 400, map-get($common, 'text-link'));
+}
+
+.head{
+  width: 100%;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .state{
+    width: 58px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include font(14px , 400 , map-get($common, 'inactive'));
+    line-height: 24px;
+    position: relative;
+    .dot{
+      width: 20px;
+      height: 20px;
+      margin-bottom: 5px;
+      border-radius: 20px;
+      background-color: map-get($common, 'inactive');
+      box-sizing: padding;
+    }
+    &::after{
+      content: "";
+      display: block;
+      width: 97px;
+      height: 1px;
+      background-color: map-get($common, 'inactive');
+      position: absolute;
+      top: 10px;
+      right: 38px;
+      z-index: 1;
+    }
+    &:first-child::after{
+        display: none;
+    }
+    &.active{
+      color: map-get($common, 'progress');
+      .dot{
+        background-color: map-get($common, 'white');
+        border: 4px solid map-get($common, 'progress');
+      }
+      &::after{
+        background-color: map-get($common, 'progress');
+      }
+    }
+    &.pre_state{
+      color: map-get($common, 'progress');
+      .dot{
+        border: 0px;
+        background-color: map-get($common, 'progress');
+      }
+      &::after{
+        background-color: map-get($common, 'progress');
+      }
+    }
+  }
+}
+
+@include themify($themes) {
+  &.content {
+    width: 100%;
+    padding-top: 20px;
+    border-top: 2px dotted map-get($common, 'border-dot');
+    // padding-bottom: 15px;
+    // border-bottom: 2px dotted map-get($common, 'border-dot');
+    margin-bottom: 20px;
+    position: relative;
+
+    .fb {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 15px;
+      @include font(14px, 400, map-get($common, 'white'));
+      background-color: map-get($common, 'fb');
+      border-radius: 5px;
+      border: 0px;
+      cursor: pointer;
+    }
+
+    .place {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .textarea_content {
+      width: 100%;
+      padding-top: 37px;
+      margin-bottom: 9px;
+      @include font(14px, 400, map-get($common, 'text-primary'));
+      border: 1px solid map-get($common, 'light-border');
+      border-radius: 5px;
+
+      .textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        height: 200px;
+        min-height: 200px;
+        padding: 12px;
+        border: 0px;
+
+        &::placeholder {
+          color: map-get($common, 'text-placeholder');
+        }
+      }
+    }
+
+    .note {
+      @include font(13px, 400, map-get($common, 'text-primary'));
+      position: absolute;
+      top: 30px;
+      left: 12px;
+    }
+
+    .ul {
+      width: 100%;
+      margin-bottom: 32px;
+      @include font(15px, 400, themed('modal-hint'));
+      line-height: 21px;
+
+      li {
+        margin-left: 15px;
+        margin-bottom: 8px;
+        position: relative;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: themed('modal-hint');
+          position: absolute;
+          top: 9px;
+          left: -15px;
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    .section {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      position: relative;
+      @include font(14px, 400, map-get($common, 'text-primary'));
+      border: 1px solid map-get($common, 'light-border');
+      border-radius: 5px;
+
+      .section_des {
+        width: 100%;
+        margin-bottom: 5px;
+        line-height: 17px;
+
+        .high_light {
+          color: map-get($common, 'progress');
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+
+      input,
+      select {
+        width: 100%;
+        height: 24px;
+        @include font(14px, 400, map-get($common, 'text-primary'));
+        border: 0px;
+        background-color: map-get($common, 'white');
+
+        &::placeholder {
+          color: map-get($common, 'text-placeholder');
+        }
+      }
+
+      .c_store {
+        width: 100%;
+        @include font(14px, 400, map-get($common, 'text-placeholder'));
+      }
+
+      .link_store {
+        width: calc(100% + 24px);
+        height: 32px;
+        margin: -10px -12px;
+        margin-top: 10px;
+        border: 0px;
+        border-top: 1px solid map-get($common, 'light-border');
+        border-radius: 0px 0px 5px 5px;
+        background-color: map-get($common, 'white');
+        @include font(12px, 400, map-get($common, 'text-primary'));
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 10px;
+          height: 2px;
+          background-color: themed('require');
+          position: absolute;
+          top: calc(50% - 1px);
+          left: calc(50% - 5px - 50px);
+        }
+
+        &::before {
+          content: '';
+          display: block;
+          width: 2px;
+          // height: 10px;
+          background-color: themed('require');
+          position: absolute;
+          top: calc(50% - 5px);
+          left: calc(50% - 1px - 50px);
+        }
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      .phone_input {
+        width: 100%;
+      }
+
+      .option_des {
+        margin-bottom: 10px;
+        line-height: 19px;
+      }
+
+      .section_require {
+        width: 40px;
+        height: 20px;
+        @include font(12px, 400, map-get($common, 'white'));
+        line-height: 20px;
+        text-align: center;
+        background-color: themed('require');
+        border-radius: 5px;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+      }
+
+      .cart_total {
+        margin-left: 10px;
+        @include font(20px, 400, map-get($common, 'text-primary'));
+      }
+
+      .option {
+        width: 100%;
+        margin-bottom: 12px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .radio {
+          width: 16px;
+          height: 16px;
+          margin-right: 8px;
+          box-sizing: padding;
+          border-radius: 8px;
+          border: 1px solid map-get($common, 'inactive');
+
+          &.active {
+            border: 4px solid themed('radio-active');
+          }
+        }
+
+        .radio_option {
+          height: 16px;
+          line-height: 16px;
+          cursor: pointer;
+        }
+
+        &.disabled {
+          opacity: .5;
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+
+.line {
+  width: 100%;
+  padding-top: 15px;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 2px dotted map-get($common, 'border-dot');
+  @include font(14px, 400, map-get($common, 'text-primary'));
+
+  p {
+    width: 100%;
+    line-height: 16px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+    height: 40px;
+    @include font(14px, 400, map-get($common, 'white'));
+    background-color: map-get($common, 'line');
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+  }
+}
+
+
+
+.modal_footer{
+  width: 290px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  .footer_text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 35px;
+    .transport_text{
+      height: 24px;
+      @include font(14px, 400);
+      line-height: 24px;
+      color: map-get($common, 'text-inactive');
+    }
+    .total_text {
+      height: 20px;
+      @include font(14px, 400);
+      line-height: 20px;
+    }
+  }
+  .footer_price{
+    display: flex;
+    flex-direction: column;align-items: flex-end;
+    .transport_price {
+      height: 24px;
+      @include font(14px, 400);line-height: 24px;
+      color: map-get($common, 'text-inactive');
+    }
+    .total_price {
+      @include font(20px, 400);
+    }
+  }
+}
+
+@include themify($themes) {
+  &.modal_btn_zone {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .modal_btn_pre {
+      width: 100px;
+      height: 40px;
+      padding: 0px 6px;
+      margin-right: 10px;
+      background-color: map-get($common, 'white');
+      @include font(14px, 400, themed('secondary'));
+      border: 1px solid themed('secondary');
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal_btn_next {
+      // width: calc(100% - 100px - 10px);
+      flex: 1;
+      height: 40px;
+      background-color: themed('secondary');
+      @include font(14px, 400, map-get($common, 'white'));
+      border: 0px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.for_btm{
+  position: relative;
+  width: 100%;
+  height: 0px;
+  &::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 57px;
+    position: absolute;
+    bottom: -87px;
+    left: 0px;
+  }
+}
+
+@media screen and (min-width: 576px){
+  .main{
+    width: 516px;
+  }
+  .head{
+    width: 300px;
+    margin: 0 auto;
+    .state{
+      &::after{
+        width: 102px;
+      }
+    }
+  }
+  .line {
+    align-items: center;
+    br {
+      display: none;
+    }
+
+    p {
+      width: calc(100% - 160px);
+      margin-bottom: 0px;
+    }
+
+    button {
+      width: 160px;
+    }
+  }
+  .place{
+    .section{
+      width: calc(50% - 5px);
+      // &:first-child{
+      //   margin-right: 10px;
+      // }
+    }
+  }
+  .modal_footer {
+    width: 516px;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .main{
+    width: 560px;
+  }
+  .head{
+    width: 372px;
+    .state{
+      width: 64px;
+      font-size: 16px;
+      &::after{
+        right: 42px;
+        width: 134px;
+      }
+    }
+  }
+
+  @include themify($themes) {
+    &.content {
+      border-top: 4px dotted map-get($common, 'border-dot');
+      // border-bottom: 4px dotted map-get($common, 'border-dot');
+  
+      .fb {
+        height: 50px;
+        font-size: 16px;
+      }
+  
+      .textarea {
+        font-size: 16px;
+      }
+  
+      .note {
+        font-size: 16px;
+      }
+  
+      .section {
+        font-size: 16px;
+  
+        input,
+        select {
+          font-size: 16px;
+        }
+  
+        .c_store {
+          font-size: 16px;
+        }
+  
+        .link_store {
+          height: 37px;
+          font-size: 16px;
+  
+          &::after {
+            width: 13px;
+            left: calc(50% - 6.5px - 65px);
+          }
+  
+          &::before {
+            height: 13px;
+            top: calc(50% - 6.5px);
+            left: calc(50% - 1px - 65px);
+          }
+        }
+  
+        .section_require {
+          width: 45px;
+          height: 28px;
+          font-size: 16px;
+          line-height: 28px;
+          right: 10px;
+        }
+  
+        .cart_total {
+          margin-left: 23px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .line {
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 16px;
+    border-top: 4px dotted map-get($common, 'border-dot');
+    button {
+      font-size: 16px;
+      height: 50px;
+    }
+  }
+  
+  .modal_footer{
+    width: 560px;
+    h6{
+      font-size: 16px;
+    }
+    p{
+      font-size: 24px;
+    }
+  }
+    // .modal_btn{
+    //   height: 50px;
+    //   font-size: 16px;
+    // }
+}
